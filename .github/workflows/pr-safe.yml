@@ -1,0 +1,15 @@
+name: Safe PR Demo
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Secret
+        run: |
+          echo "Secret is: $DEMO_SECRET"
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
